@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "nunito";
+  src: url("/Nunito-Medium.ttf") format("truetype");
+}
+
+* {
+  font-family: "nunito";
+  transition:
+    width 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.glow {
+  box-shadow: rgba(72, 135, 202, 0.8) 0 0 50px 33px;
+  border: 2px solid rgba(72, 135, 202, 0.8);
+}
