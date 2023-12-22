@@ -1,6 +1,7 @@
 import Fullscreen from "@/components/Fullscreen";
 import { Tag, X } from "lucide-react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 type quoteType = {
   quote: {
@@ -8,18 +9,36 @@ type quoteType = {
     text: string;
     url: string;
   };
+  id: number;
 };
 
-const Item = ({ quote }: quoteType) => {
+const Item = ({ quote, id }: quoteType) => {
   const [open, isOpen] = useState(false);
 
   return (
-    <Fullscreen className="relative">
-      <div></div>
-      <div>
-        <div className="first-letter:uppercase">{quote.text}</div>
+    <Fullscreen id={id}>
+      <div className="mt-4 w-full text-6xl text-slate-100">
+        <a href={`#${id + 1}`} className="text-4xl text-teal-400 typography">
+          {id}
+        </a>
       </div>
-      <div className="w-full mb-10 flex justify-center flex-col items-center rounded p-2 relative">
+      <div className="w-full overflow-hidden">
+        <motion.span
+          initial={{
+            backgroundSize: "0% 3px",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "left bottom",
+            textDecoration: "none",
+          }}
+          whileInView={{
+            backgroundSize: "100% 3px",
+          }}
+          className="tracking-[2.5px] rounded leading-normal bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500"
+        >
+          {quote.text}
+        </motion.span>
+      </div>
+      <div className="w-full mb-20 flex justify-center flex-col items-center rounded p-2 relative">
         <img
           style={{
             width: open ? "100%" : "0%",
