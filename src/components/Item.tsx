@@ -2,6 +2,7 @@ import Fullscreen from "@/components/Fullscreen";
 import { Tag, X } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { block } from "million";
 
 type quoteType = {
   quote: {
@@ -12,7 +13,7 @@ type quoteType = {
   id: number;
 };
 
-const Item = ({ quote, id }: quoteType) => {
+const Item = block(({ quote, id }: quoteType) => {
   const [open, isOpen] = useState(false);
 
   return (
@@ -69,6 +70,6 @@ const Item = ({ quote, id }: quoteType) => {
       </div>
     </Fullscreen>
   );
-};
+});
 
 export default Item;
