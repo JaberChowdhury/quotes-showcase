@@ -5,8 +5,14 @@ import Indicator from "@/components/Indicator";
 import Item from "@/components/Item";
 import Footer from "@/components/Footer";
 
+type QUOTE = {
+  id: string;
+  url: string;
+  text: string;
+};
+
 const App = () => {
-  const [quotes, setQuotes] = useState([]);
+  const [quotes, setQuotes] = useState<QUOTE[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
